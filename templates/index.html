@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Health Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="heart-pulse-container">
+        <div class="heart-icon"></div>
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+
+    <!-- Left Section: Information and Resources -->
+    <div class="info-section">
+        <div class="content-wrapper">
+            <canvas id="heartCanvas"></canvas>
+            <div class="info-text-container">
+                <h2 class="section-title">Understanding Heart Health</h2>
+                <p>Cardiovascular disease is a leading health concern globally. However, understanding the risks and taking proactive steps can significantly improve your long-term health. This app is designed to help you assess your risk, but it's crucial to learn about the underlying factors.</p>
+
+                <div class="info-box">
+                    <h3>Key Risk Factors</h3>
+                    <ul>
+                        <li><strong>Diet:</strong> High intake of saturated fats and sodium.</li>
+                        <li><strong>Lifestyle:</strong> Lack of physical activity and smoking.</li>
+                        <li><strong>Medical Conditions:</strong> High blood pressure, high cholesterol, and diabetes.</li>
+                        <li><strong>Genetics:</strong> Family history of heart disease.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>How to Prevent Heart Disease</h3>
+                    <ul>
+                        <li><strong>Healthy Diet:</strong> Focus on fruits, vegetables, whole grains, and lean proteins.</li>
+                        <li><strong>Regular Exercise:</strong> Aim for at least 150 minutes of moderate exercise per week.</li>
+                        <li><strong>Stress Management:</strong> Practice mindfulness, meditation, or yoga.</li>
+                        <li><strong>Routine Check-ups:</strong> Monitor your blood pressure, cholesterol, and blood sugar.</li>
+                    </ul>
+                </div>
+
+       <div class="video-section">
+                        <h3 class="section-title">Watch and Learn</h3>
+                        <p>Watch this video to get a clear idea about heart disease and effective prevention methods.</p>
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/rCqzV-JdNLY" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="pdf-section">
+                        <h3 class="section-title">Deep Dive into Heart Disease</h3>
+                        <p>For a comprehensive guide on heart health, prevention, and living a heart-healthy lifestyle, download our detailed resource guide.</p>
+                        <a href="{{ url_for('static', filename='health_guide.pdf') }}" class="pdf-link" target="_blank" download="Heart-Health-Guide.pdf">Download Full Health Guide (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Right Section: The Prediction App -->
+    <div class="app-section">
+        <div class="card">
+            <header class="app-header">
+                <h1>Heart Health Predictor</h1>
+                <p class="subtitle">Enter patient details to receive a risk assessment.</p>
+            </header>
+
+            <form id="predictionForm">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <select id="sex">
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cp">Chest Pain Type</label>
+                    <select id="cp">
+                        <option value="0">0 (Typical angina)</option>
+                        <option value="1">1 (Atypical angina)</option>
+                        <option value="2">2 (Non-anginal pain)</option>
+                        <option value="3">3 (Asymptomatic)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+                    <input type="number" id="trestbps" required>
+                </div>
+                <div class="form-group">
+                    <label for="chol">Serum Cholesterol (mg/dl)</label>
+                    <input type="number" id="chol" required>
+                </div>
+                <div class="form-group">
+                    <label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+                    <select id="fbs">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="restecg">Resting ECG</label>
+                    <select id="restecg">
+                        <option value="0">0 (Normal)</option>
+                        <option value="1">1 (ST-T wave abnormality)</option>
+                        <option value="2">2 (Left ventricular hypertrophy)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="thalach">Max Heart Rate Achieved</label>
+                    <input type="number" id="thalach" required>
+                </div>
+                <div class="form-group">
+                    <label for="exang">Exercise Induced Angina</label>
+                    <select id="exang">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="oldpeak">ST Depression (Oldpeak)</label>
+                    <input type="number" step="0.1" id="oldpeak" required>
+                </div>
+                <div class="form-group">
+                    <label for="slope">Slope of Peak Exercise ST Segment</label>
+                    <select id="slope">
+                        <option value="0">0 (Upsloping)</option>
+                        <option value="1">1 (Flat)</option>
+                        <option value="2">2 (Downsloping)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ca">Number of Major Vessels (0-4)</label>
+                    <input type="number" id="ca" required>
+                </div>
+                <div class="form-group">
+                    <label for="thal">Thalassemia (0-3)</label>
+                    <select id="thal">
+                        <option value="0">0 (Normal)</option>
+                        <option value="1">1 (Fixed defect)</option>
+                        <option value="2">2 (Reversible defect)</option>
+                        <option value="3">3 (Not specified)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+
+            <div id="result-container" class="result-box">
+                <p id="result-text"></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='loading.js') }}"></script>
+<script src="{{ url_for('static', filename='animation.js') }}"></script>
+</body>
+</html>

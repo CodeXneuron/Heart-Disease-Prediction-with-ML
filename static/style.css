@@ -159,8 +159,8 @@ label {
     color: #c9d1d9;
 }
 .form-group label {
-    font-weight: 700;
-    color: #f0f6fc;
+    font-weight: 900;
+    color: #65b9fd;
 }
 
 input[type="number"], select {

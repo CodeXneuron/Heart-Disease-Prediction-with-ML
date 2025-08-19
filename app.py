@@ -28,7 +28,7 @@ def predict():
     prediction = model.predict(input_array)
     
     # Return prediction as JSON
-    result = "Affected by Defective Heart Disease" if prediction[0] == 1 else "Don't Worry , Healthy Heart"
+    result = "Heart Disease" if prediction[0] == 1 else "Healthy Heart"
     return jsonify({'prediction': result})
 
 if __name__ == '__main__':

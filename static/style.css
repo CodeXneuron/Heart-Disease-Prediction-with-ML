@@ -72,7 +72,7 @@ body {
 }
 
 .info-box ul {
-    list-style-type: '👉';
+    list-style-type: '�';
     padding-left: 20px;
 }
 
@@ -158,6 +158,10 @@ label {
     margin-bottom: 0.5rem;
     color: #c9d1d9;
 }
+.form-group label {
+    font-weight: 700;
+    color: #f0f6fc;
+}
 
 input[type="number"], select {
     width: 100%;
@@ -236,7 +240,6 @@ input:focus, select:focus {
     transition: opacity 0.5s, visibility 0s 0.5s;
     opacity: 1;
     visibility: visible;
-
 }
 
 .heart-pulse-container {
@@ -276,17 +279,24 @@ input:focus, select:focus {
     border-radius: 8px;
 }
 
+/* ====================================================== */
+/* Footer Styling */
+/* ====================================================== */
 .footer {
     background-color: #161b22;
     color: #6c757d;
     text-align: center;
     padding: 1.5rem;
 }
+.footer::before {
+    content: "\2764 ";
+    color: #dc3545;
+}
+
 
 /* ====================================================== */
 /* Responsive Design for Mobile Devices */
 /* ====================================================== */
-
 @media (max-width: 768px) {
     body {
         padding: 0;

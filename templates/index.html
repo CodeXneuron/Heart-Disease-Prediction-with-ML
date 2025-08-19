@@ -47,27 +47,27 @@
                     </ul>
                 </div>
 
-       <div class="video-section">
-                        <h3 class="section-title">Watch and Learn</h3>
-                        <p>Watch this video to get a clear idea about heart disease and effective prevention methods.</p>
-                        <div class="video-container">
-                            <iframe 
-                                src="https://www.youtube.com/embed/rCqzV-JdNLY" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
+               <div class="video-section">
+                    <h3 class="section-title">Watch and Learn</h3>
+                    <p>Watch this video to get a clear idea about heart disease and effective prevention methods.</p>
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/rCqzV-JdNLY"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
+                </div>
 
-                    <div class="pdf-section">
-                        <h3 class="section-title">Deep Dive into Heart Disease</h3>
-                        <p>For a comprehensive guide on heart health, prevention, and living a heart-healthy lifestyle, download our detailed resource guide.</p>
-                        <a href="{{ url_for('static', filename='health_guide.pdf') }}" class="pdf-link" target="_blank" download="Heart-Health-Guide.pdf">Download Full Health Guide (PDF)</a>
-                    </div>
+                <div class="pdf-section">
+                    <h3 class="section-title">Deep Dive into Heart Disease</h3>
+                    <p>For a comprehensive guide on heart health, prevention, and living a heart-healthy lifestyle, download our detailed resource guide.</p>
+                    <a href="https://www.cdc.gov/heartdisease/docs/Prevent-Heart-Disease-Brochure.pdf" class="pdf-link" target="_blank">Download Full Health Guide (PDF)</a>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Right Section: The Prediction App -->
     <div class="app-section">
@@ -80,82 +80,68 @@
             <form id="predictionForm">
                 <div class="form-group">
                     <label for="age">Age</label>
-                    <input type="number" id="age" required>
+                    <input type="number" id="age" required placeholder="e.g., 52">
+                    <small class="form-text">Patient's age in years.</small>
                 </div>
                 <div class="form-group">
                     <label for="sex">Sex</label>
-                    <select id="sex">
-                        <option value="1">Male</option>
-                        <option value="0">Female</option>
-                    </select>
+                    <input type="number" id="sex" placeholder="Male: 1, Female: 0" required>
+                    <small class="form-text">Categorical value for gender.</small>
                 </div>
                 <div class="form-group">
                     <label for="cp">Chest Pain Type</label>
-                    <select id="cp">
-                        <option value="0">0 (Typical angina)</option>
-                        <option value="1">1 (Atypical angina)</option>
-                        <option value="2">2 (Non-anginal pain)</option>
-                        <option value="3">3 (Asymptomatic)</option>
-                    </select>
+                    <input type="number" id="cp" placeholder="0=Asymptomatic, 1=Atypical Angina, 2=Typical Angina, 3=Non-anginal" required>
+                    <small class="form-text">Type of chest pain reported.</small>
                 </div>
                 <div class="form-group">
                     <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
-                    <input type="number" id="trestbps" required>
+                    <input type="number" id="trestbps" placeholder="e.g., 120" required>
+                    <small class="form-text">The patient's blood pressure at rest.</small>
                 </div>
                 <div class="form-group">
                     <label for="chol">Serum Cholesterol (mg/dl)</label>
-                    <input type="number" id="chol" required>
+                    <input type="number" id="chol" placeholder="e.g., 200" required>
+                    <small class="form-text">Cholesterol level in mg/dl.</small>
                 </div>
                 <div class="form-group">
                     <label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
-                    <select id="fbs">
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
+                    <input type="number" id="fbs" placeholder="No: 0, Yes: 1" required>
+                    <small class="form-text">Indicates if fasting blood sugar is high.</small>
                 </div>
                 <div class="form-group">
                     <label for="restecg">Resting ECG</label>
-                    <select id="restecg">
-                        <option value="0">0 (Normal)</option>
-                        <option value="1">1 (ST-T wave abnormality)</option>
-                        <option value="2">2 (Left ventricular hypertrophy)</option>
-                    </select>
+                    <input type="number" id="restecg" placeholder="0=Normal, 1=ST-T wave abnormality, 2=Left Ventricular Hypertrophy" required>
+                    <small class="form-text">Result of the resting electrocardiogram.</small>
                 </div>
                 <div class="form-group">
                     <label for="thalach">Max Heart Rate Achieved</label>
-                    <input type="number" id="thalach" required>
+                    <input type="number" id="thalach" placeholder="e.g., 150" required>
+                    <small class="form-text">Maximum heart rate recorded during exercise.</small>
                 </div>
                 <div class="form-group">
                     <label for="exang">Exercise Induced Angina</label>
-                    <select id="exang">
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
+                    <input type="number" id="exang" placeholder="No: 0, Yes: 1" required>
+                    <small class="form-text">Indicates if chest pain was induced by exercise.</small>
                 </div>
                 <div class="form-group">
                     <label for="oldpeak">ST Depression (Oldpeak)</label>
-                    <input type="number" step="0.1" id="oldpeak" required>
+                    <input type="number" step="0.1" id="oldpeak" placeholder="e.g., 1.5" required>
+                    <small class="form-text">ECG result showing ST depression during exercise.</small>
                 </div>
                 <div class="form-group">
                     <label for="slope">Slope of Peak Exercise ST Segment</label>
-                    <select id="slope">
-                        <option value="0">0 (Upsloping)</option>
-                        <option value="1">1 (Flat)</option>
-                        <option value="2">2 (Downsloping)</option>
-                    </select>
+                    <input type="number" id="slope" placeholder="0=Upsloping, 1=Flat, 2=Downsloping" required>
+                    <small class="form-text">Slope of the ST segment of the ECG during peak exercise.</small>
                 </div>
                 <div class="form-group">
                     <label for="ca">Number of Major Vessels (0-4)</label>
-                    <input type="number" id="ca" required>
+                    <input type="number" id="ca" placeholder="e.g., 0-4" required>
+                    <small class="form-text">Number of major blood vessels detected by fluoroscopy.</small>
                 </div>
                 <div class="form-group">
                     <label for="thal">Thalassemia (0-3)</label>
-                    <select id="thal">
-                        <option value="0">0 (Normal)</option>
-                        <option value="1">1 (Fixed defect)</option>
-                        <option value="2">2 (Reversible defect)</option>
-                        <option value="3">3 (Not specified)</option>
-                    </select>
+                    <input type="number" id="thal" placeholder="0=Normal, 1=Fixed defect, 2=Reversible defect" required>
+                    <small class="form-text">A genetic blood disorder affecting oxygen-carrying capacity.</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Predict</button>
@@ -168,12 +154,122 @@
     </div>
 
 </div>
-
 <footer class="footer">
-        <p>Developed by Creovate labs 🩺 © 2025</p>
-    </footer>
+    <p>Developed by Creovate labs 🩺 © 2025</p>
+</footer>
+<script>
+    // All JavaScript from loading.js and animation.js goes here
 
-<script src="{{ url_for('static', filename='loading.js') }}"></script>
-<script src="{{ url_for('static', filename='animation.js') }}"></script>
+    // Loading Screen Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const heartIcon = document.querySelector('.heart-pulse-container .heart-icon');
+
+        const heartColor = '#dc3545';
+        const svgContent = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${heartColor}">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.48 5.48 0 017.5 3C9.36 3 11 4.29 12 5.57 13 4.29 14.64 3 16.5 3a5.48 5.48 0 015.5 5.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        `;
+        heartIcon.innerHTML = svgContent;
+    });
+
+    // Main Animation Logic
+    function startCanvasAnimation() {
+        const canvas = document.getElementById('heartCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let heartSize = 50;
+        const maxSize = 60;
+        const minSize = 50;
+        let pulseDirection = 1;
+        const pulseSpeed = 0.2;
+        const heartColor = '#dc3545';
+
+        function drawHeart(x, y, size) {
+            ctx.beginPath();
+            ctx.moveTo(x, y + size / 4);
+            ctx.bezierCurveTo(x + size / 2, y - size / 2, x + size, y, x, y + size);
+            ctx.bezierCurveTo(x - size, y, x - size / 2, y - size / 2, x, y + size / 4);
+            ctx.closePath();
+            ctx.fillStyle = heartColor;
+            ctx.fill();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            heartSize += pulseDirection * pulseSpeed;
+            if (heartSize >= maxSize) {
+                pulseDirection = -1;
+            } else if (heartSize <= minSize) {
+                pulseDirection = 1;
+            }
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            drawHeart(centerX, centerY, heartSize);
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+
+    // Main App Logic
+    window.onload = function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const loadingDuration = 3000;
+        setTimeout(function() {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
+            startCanvasAnimation();
+        }, loadingDuration);
+
+        document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = {
+                age: parseFloat(document.getElementById('age').value),
+                sex: parseFloat(document.getElementById('sex').value),
+                cp: parseFloat(document.getElementById('cp').value),
+                trestbps: parseFloat(document.getElementById('trestbps').value),
+                chol: parseFloat(document.getElementById('chol').value),
+                fbs: parseFloat(document.getElementById('fbs').value),
+                restecg: parseFloat(document.getElementById('restecg').value),
+                thalach: parseFloat(document.getElementById('thalach').value),
+                exang: parseFloat(document.getElementById('exang').value),
+                oldpeak: parseFloat(document.getElementById('oldpeak').value),
+                slope: parseFloat(document.getElementById('slope').value),
+                ca: parseFloat(document.getElementById('ca').value),
+                thal: parseFloat(document.getElementById('thal').value)
+            };
+            const resultBox = document.getElementById('result-container');
+            const resultText = document.getElementById('result-text');
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                if (!response.ok) {
+                    throw new Error('Prediction failed.');
+                }
+                const result = await response.json();
+                resultText.textContent = `Prediction: ${result.prediction}`;
+                if (result.prediction === "Heart Disease") {
+                    resultBox.className = 'result-box result-danger';
+                } else {
+                    resultBox.className = 'result-box result-success';
+                }
+            } catch (error) {
+                resultText.textContent = 'An error occurred. Please try again.';
+                resultBox.className = 'result-box result-error';
+            }
+        });
+    };
+</script>
 </body>
 </html>

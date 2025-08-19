@@ -236,7 +236,7 @@ input:focus, select:focus {
     transition: opacity 0.5s, visibility 0s 0.5s;
     opacity: 1;
     visibility: visible;
-    pointer-events: none; /* <-- allow clicks to pass through */
+
 }
 
 .heart-pulse-container {
@@ -274,4 +274,62 @@ input:focus, select:focus {
     width: 100%;
     height: 100%;
     border-radius: 8px;
+}
+
+.footer {
+    background-color: #161b22;
+    color: #6c757d;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* ====================================================== */
+/* Responsive Design for Mobile Devices */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .main-container {
+        flex-direction: column; /* Stacks sections vertically on small screens */
+    }
+
+    .info-section,
+    .app-section {
+        padding: 2rem 1rem; /* Reduce padding for mobile */
+        min-height: auto; /* Allow height to adjust to content */
+    }
+
+    .info-text-container {
+        max-width: 100%; /* Allow content to use full width */
+        text-align: center; /* Center the text for mobile */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Smaller title font size for mobile */
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 2rem 1.5rem; /* Smaller padding inside the card */
+    }
+
+    .form-group {
+        margin-bottom: 1rem; /* Smaller spacing between form elements */
+    }
+
+    .pdf-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hide canvas animation on mobile to improve performance and readability */
+    #heartCanvas {
+        display: none;
+    }
 }
